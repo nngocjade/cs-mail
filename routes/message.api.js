@@ -13,14 +13,14 @@ router.post("/", messageController.sendMessage);
 /**
  * @route PUT api/messages/
  * @description User can update content of message
- * @access Login requied
+ * @access Login required
  */
 router.put("/", authMiddleware.loginRequired, messageController.updateMessage);
 
 /**
  * @route GET api/messages?page=1&limit=10
  * @description User can get a list of messages
- * @access Public
+ * @access Login required
  */
 router.get(
   "/",
