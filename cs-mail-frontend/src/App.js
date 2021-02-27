@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PublicNavbar from "./components/PublicNavbar";
@@ -11,6 +12,7 @@ import AlertMsg from "./components/AlertMsg";
 
 import PrivateRoute from "./routes/PrivateRoute";
 function App() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return (
     <>
       {isAuthenticated === null ? (
