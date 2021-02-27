@@ -1,7 +1,7 @@
 ## Write components
 
 - Please read Toastify documentation for more configurations via this link : `https://openbase.com/js/react-toastify`
-- Create `src/components/AlertMessage.js` to display web alert notification:
+- Create `src/components/AlertMsg.js` to display web alert notification:
 
 ```jsx
 import React from "react";
