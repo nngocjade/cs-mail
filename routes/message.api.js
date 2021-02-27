@@ -1,4 +1,6 @@
 const express = require("express");
+const messageController = require("../controllers/message.controller");
+const authMiddleware = require("../middlewares/authentication");
 const router = express.Router();
 
 /**
@@ -6,26 +8,31 @@ const router = express.Router();
  * @description User can send message
  * @access Public
  */
+router.post("/", messageController.sendMessage);
 
 /**
  * @route PUT api/messages/
  * @description User can update content of message
- * @access Public
+ * @access Login requied
  */
+router.put("/", authMiddleware.loginRequired, messageController.updateMessage);
 
 /**
  * @route GET api/messages?page=1&limit=10
- * @description Get messages with pagination
+ * @description User can get a list of messages
  * @access Public
  */
-router.get("/", function (req, res, next) {
-  res.send({ status: "ok", data: "Cs Mail" });
-});
+router.get(
+  "/",
+  authMiddleware.loginRequired,
+  messageController.getListOfMessage
+);
 
 /**
  * @route GET api/messages/:id
- * @description User can read message detail
+ * @description User can send message
  * @access Public
  */
+router.get("/:id", messageController.getSingleMessage);
 
 module.exports = router;
