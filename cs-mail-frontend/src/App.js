@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
+import PublicNavbar from "./components/PublicNavbar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import AlertMsg from "./components/AlertMsg";
 
+import PrivateRoute from "./routes/PrivateRoute";
 function App() {
   return (
-    <div className="text-center">
-      <Container>
-        <h1>My new React App</h1>
-      </Container>
-    </div>
+    <>
+      {isAuthenticated === null ? (
+        <p>Loading...</p>
+      ) : (
+        <Router>
+          <PublicNavbar />
+          <AlertMsg />
+          <Switch>
+            <PrivateRoute exact path="/" component={HomePage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/register" component={RegisterPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Router>
+      )}
+    </>
   );
 }
 
