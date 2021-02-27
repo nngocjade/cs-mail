@@ -4,6 +4,17 @@ const Schema = mongoose.Schema;
 const jwt = require("jsonwebtoken");
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
+const userSchema = Schema(
+  {
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    role: { type: String, enum: ["user", "admin"] },
+    isDeleted: false,
+  },
+  { timestamps: true }
+);
+
 userSchema.methods.toJSON = function () {
   const obj = this._doc;
   delete obj.password;
@@ -19,17 +30,6 @@ userSchema.methods.generateToken = async function () {
   });
   return accessToken;
 };
-
-const userSchema = Schema(
-  {
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    role: { type: String, enum: ["user", "admin"] },
-    isDeleted: false,
-  },
-  { timestamps: true }
-);
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
