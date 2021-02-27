@@ -1,6 +1,6 @@
 ## Set up auth.reducer.md and index.js
 
-- In `src/redux/reducer/auth.reducer.js`, add:
+- In `src/redux/reducer/index.js`, add:
 
 ```jsx
 import { combineReducers } from "redux";
