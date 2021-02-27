@@ -1,6 +1,8 @@
-# CoderSchool Mail
+# CoderSchool Full Stack Mail App
 
-This is a documentation of how to create web application in MERN stack **from scratch**. The app allow user to send email to other users within the app platform. This is project is a good excercise for building one of your familiarize with the Mongo database.
+Created with love by: Jade
+
+This repo includes a documentation of how to create a web application in MERN stack **from scratch** as well as a demo app following the instructions. The app allow user to send email to other users within the app platform.
 
 ## Features
 
@@ -14,7 +16,7 @@ This is a documentation of how to create web application in MERN stack **from sc
 
 ### Server side
 
-When developing a full-stack web, it is common to have the web's backend develop prior to front-end. One of the main reason is that it would be easier to have database ready when implementing the front-end logic of the web.
+When developing a full-stack web, it is common to have the web's backend develop prior to front-end. One of the main reason is, it would be easier to have the database ready when implementing the front-end logic of the web.
 
 **Project setup**
 
