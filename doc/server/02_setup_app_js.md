@@ -4,7 +4,7 @@
 
   ```javascript
   "use strict";
-  utilsHelper = {};
+  const utilsHelper = {};
   utilsHelper.sendResponse = (res, status, success, data, errors, message) => {
     const response = {};
     if (success) response.success = success;
