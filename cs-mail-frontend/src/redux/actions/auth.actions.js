@@ -7,6 +7,7 @@ const loginRequest = ({ email, password }) => async (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST, payload: null });
   try {
     const res = await api.post("/auth/login", { email, password });
+    console.log(res);
     dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.data });
   } catch (error) {
     console.log(error);

@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PublicNavbar from "./components/PublicNavbar";
@@ -12,23 +11,18 @@ import AlertMsg from "./components/AlertMsg";
 
 import PrivateRoute from "./routes/PrivateRoute";
 function App() {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return (
     <>
-      {isAuthenticated === null ? (
-        <p>Loading...</p>
-      ) : (
-        <Router>
-          <PublicNavbar />
-          <AlertMsg />
-          <Switch>
-            <PrivateRoute exact path="/" component={HomePage} />
-            <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/register" component={RegisterPage} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </Router>
-      )}
+      <Router>
+        <PublicNavbar />
+        <AlertMsg />
+        <Switch>
+          <PrivateRoute exact path="/" component={HomePage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/register" component={RegisterPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Router>
     </>
   );
 }
